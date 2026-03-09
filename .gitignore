@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Local user files (IMPORTANT)
+Chrome-Profile/
+token.json
+credentials.json
+data.xlsx
+scraper.py
+scraper_*.py
+CONTEXT_FOR_AI.py
+config.py
+auth_config.py

@@ -1,0 +1,8 @@
+click
+selenium
+webdriver-manager
+pandas
+gspread
+google-auth-oauthlib
+openpyxl
+colorama
