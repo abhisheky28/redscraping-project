@@ -24,3 +24,5 @@ scraper_*.py
 CONTEXT_FOR_AI.py
 config.py
 auth_config.py
+dist
+pypi.txt
