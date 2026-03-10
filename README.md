@@ -5,8 +5,8 @@
 **Turn a 30-minute scraping setup into 4 terminal commands.**
 
 [![PyPI - Version](https://img.shields.io/pypi/v/redscraping?color=red&style=for-the-badge&logo=pypi&logoColor=white)](https://pypi.org/project/redscraping/)
-[![Python Versions](https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python&logoColor=white)](https://github.com/abhisheky28/redscraping-project/blob/main/LICENSE)
-[![License: MIT](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)](https://github.com/abhisheky28/redscraping-project/blob/main/README.md)
+[![Python Versions](https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python&logoColor=white)](https://github.com/python)
+[![License: MIT](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)](https://github.com/abhisheky28/redscraping-project/blob/main/LICENSE)
 [![Maintained](https://img.shields.io/badge/Maintained-Yes-success?style=for-the-badge)](https://github.com/abhisheky28)
 
 </div>
