@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='redscraping', # The pip install name
-    version='1.0.1',
+    version='1.0.2',
     packages=find_packages(),
     install_requires=[
         'click',
