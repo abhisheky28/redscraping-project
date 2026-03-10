@@ -12,7 +12,7 @@ def setup_google_sheet():
     creds = Credentials.from_authorized_user_file('token.json', scopes)
     gc = gspread.authorize(creds)
     
-    sheet_name = "RedScraping"
+    sheet_name = "Redscraping"
     worksheet_name = "Scrape"
     
     try:
