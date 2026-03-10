@@ -40,6 +40,7 @@ RedScraping is a CLI framework that handles all the boring infrastructure for yo
 ### 1. Install the library
 ```bash
 pip install redscraping
+```
 
 
 ## 🤝 Contributing
