@@ -34,6 +34,18 @@ def setup_google_sheet():
 
 def generate_project(project_type):
     current_dir = os.getcwd()
+
+    # --- NEW: CREATE FOLDERS ON INIT ---
+    console = click.get_current_context().obj if hasattr(click.get_current_context(), 'obj') else None # A safe way to get console
+    
+    for folder in ["input", "output", ".cache"]:
+        folder_path = os.path.join(current_dir, folder)
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path)
+            if console:
+                click.secho(f"✅ Created '{folder}/' directory.", fg="green")
+    # --- END OF NEW CODE ---
+
     
     config_path = os.path.join(current_dir, "config.py")
     if not os.path.exists(config_path):

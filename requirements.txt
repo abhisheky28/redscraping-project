@@ -1,8 +1,18 @@
+# --- Core CLI & UI ---
 click
+colorama
+rich
+
+# --- Scraping Engine (Fast & Fallback) ---
+requests
+beautifulsoup4
 selenium
 webdriver-manager
+
+# --- Data & Output Management ---
 pandas
+openpyxl
+
+# --- Google Cloud / Sheets ---
 gspread
 google-auth-oauthlib
-openpyxl
-colorama

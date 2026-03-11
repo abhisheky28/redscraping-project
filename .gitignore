@@ -25,3 +25,9 @@ CONTEXT_FOR_AI.py
 config.py
 auth_config.py
 versions
+.cache
+output
+input
+.xlsx
+.csv
+.json
