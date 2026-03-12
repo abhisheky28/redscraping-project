@@ -7,13 +7,11 @@ from rich.prompt import Prompt
 # --- IMPORT FEATURE COMMANDS ---
 from .utils.setup_cmds import info, setup_chrome, init, context
 # Update your import line:
-from .scraping.scrape_cmds import headings, clean, titles
-from .scraping.scrape_cmds import headings, clean, titles, description
-from .scraping.scrape_cmds import headings, clean, titles, description, meta
-from .scraping.scrape_cmds import headings, clean, titles, description, meta, href
-from .scraping.scrape_cmds import headings, clean, titles, description, meta, href, elements
-from .scraping.scrape_cmds import headings, clean, titles, description, meta, href, elements, text
+from .scraping.url_features.scrape_cmds import headings, clean, titles, description, meta, href, elements, text, status
 
+from .scraping.crawler.crawl_cmds import urls, broken, emails, assets, orphans
+
+from .scraping.ai.ai_cmds import ai, ai_key_group
 
 
 console = Console()
@@ -59,7 +57,7 @@ main_cli.add_command(info)
 main_cli.add_command(setup_chrome, name="setup-chrome")
 main_cli.add_command(init)
 main_cli.add_command(context)
-from .scraping.scrape_cmds import headings, clean
+from .scraping.url_features.scrape_cmds import headings, clean
 
 # ...
 main_cli.add_command(headings)
@@ -69,6 +67,15 @@ main_cli.add_command(meta)
 main_cli.add_command(href)
 main_cli.add_command(elements)
 main_cli.add_command(text)
+main_cli.add_command(status)
+main_cli.add_command(urls)
+main_cli.add_command(broken)
+main_cli.add_command(emails)
+main_cli.add_command(assets)
+main_cli.add_command(orphans)
+main_cli.add_command(ai)
+main_cli.add_command(ai_key_group)
+
 main_cli.add_command(clean)
 
 if __name__ == "__main__":

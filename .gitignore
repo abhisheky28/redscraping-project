@@ -31,3 +31,5 @@ input
 .xlsx
 .csv
 .json
+custom_scraper.py
+smart_extractor.py

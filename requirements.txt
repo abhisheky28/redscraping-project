@@ -8,6 +8,8 @@ requests
 beautifulsoup4
 selenium
 webdriver-manager
+aiohttp
+curl_cffi
 
 # --- Data & Output Management ---
 pandas
@@ -16,3 +18,5 @@ openpyxl
 # --- Google Cloud / Sheets ---
 gspread
 google-auth-oauthlib
+google-api-python-client
+google-genai

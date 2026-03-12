@@ -1,6 +1,6 @@
 import os
 from rich.console import Console
-from ..utils.chrome_setup import setup_master_profile
+from ...utils.chrome_setup import setup_master_profile
 
 console = Console()
 
