@@ -12,7 +12,15 @@ setup(
         'gspread',
         'google-auth-oauthlib',
         'openpyxl',
-        'colorama'
+        'colorama',
+        'rich',
+        'beautifulsoup4',
+        'requests',
+        'aiohttp',
+        'google-api-python-client',
+        'curl_cffi',
+        'google-genai'
+
     ],
     entry_points='''
         [console_scripts]

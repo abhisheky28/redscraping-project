@@ -1,36 +1,82 @@
+# redscraping_core/cli.py
 import click
-from .chrome_setup import setup_master_profile
-from .project_generator import generate_project, generate_ai_context
+from rich.console import Console
+from rich.panel import Panel
+from rich.prompt import Prompt
 
-@click.group()
-def main_cli():
-    """🚀 RedScraping CLI - Your Ultimate Automation Setup Tool"""
-    pass
+# --- IMPORT FEATURE COMMANDS ---
+from .utils.setup_cmds import info, setup_chrome, init, context
+# Update your import line:
+from .scraping.url_features.scrape_cmds import headings, clean, titles, description, meta, href, elements, text, status
 
-@main_cli.command()
-def info():
-    """Displays instructions on how to use the setups."""
-    click.secho("\n=== RedScraping Setup Guide ===", fg="cyan", bold=True)
-    click.echo("1. Run 'redscrape setup-chrome' to prime your browser.")
-    click.echo("2. Run 'redscrape init --type sheets' (or --type excel) to generate your project.")
-    click.echo("3. (Optional) Run 'redscrape context' to generate a helper file for AI assistants.")
-    click.echo("4. Open your 'scraper.py' file, add your logic, and run it!\n")
+from .scraping.crawler.crawl_cmds import urls, broken, emails, assets, orphans
 
-@main_cli.command()
-@click.option('--refresh', is_flag=True, help="Deletes the old profile and creates a new one.")
-@click.option('--timeout', default=90, help="Time in seconds to wait for manual login.")
-def setup_chrome(refresh, timeout):
-    """Creates and logs into the Master Chrome Profile."""
-    setup_master_profile(refresh=refresh, timeout=timeout)
+from .scraping.ai.ai_cmds import ai, ai_key_group
 
-@main_cli.command()
-@click.option('--type', 'project_type', type=click.Choice(['sheets', 'excel']), required=True, help="Choose 'sheets' or 'excel'")
-def init(project_type):
-    """Generates the boilerplate code for your scraper."""
-    click.secho(f"🏗️ Generating {project_type.upper()} project boilerplate...", fg="cyan")
-    generate_project(project_type)
 
-@main_cli.command()
-def context():
-    """Generates a context file for AI assistants."""
-    generate_ai_context()
+console = Console()
+
+@click.group(invoke_without_command=True)
+@click.pass_context
+def main_cli(ctx):
+    """🚀 RedScraping - The Ultimate SEO Spider & Automation Framework"""
+    
+    # INTERACTIVE APP MODE
+    if ctx.invoked_subcommand is None:
+        console.print(Panel.fit(
+            "[bold red]🕸️ Welcome to RedScraping[/bold red]\n"
+            "[cyan]The Open-Source SEO Spider & Automation Framework[/cyan]"
+        ))
+        
+        # PRINT OPTIONS FIRST!
+        console.print("\n[1] 🕷️ Crawl & Extract (Coming in v2!)")
+        console.print("[2] 🏗️ Generate Boilerplate Project (Init)")
+        console.print("[3] 🤖 Generate AI Scraper Context")
+        console.print("[4] ❌ Exit\n")
+        
+        # THEN ASK FOR INPUT
+        action = Prompt.ask(
+            "Enter the number of your choice",
+            choices=["1", "2", "3", "4"],
+            default="1",
+            show_choices=False
+        )
+        
+        if action == "1":
+            console.print("\n[yellow]👉 Scraping engine is currently being built! Soon you will be able to run 'redscrape heading urls.txt'[/yellow]")
+        elif action == "2":
+            console.print("\n[yellow]👉 To do this via CLI, run: redscrape init --type sheets[/yellow]")
+            # We can actually trigger the function directly here in the future!
+        elif action == "3":
+            console.print("\n[yellow]👉 To do this via CLI, run: redscrape context[/yellow]")
+        elif action == "4":
+            console.print("Goodbye! 👋")
+
+# --- REGISTER UTILS (v1) COMMANDS ---
+main_cli.add_command(info)
+main_cli.add_command(setup_chrome, name="setup-chrome")
+main_cli.add_command(init)
+main_cli.add_command(context)
+from .scraping.url_features.scrape_cmds import headings, clean
+
+# ...
+main_cli.add_command(headings)
+main_cli.add_command(titles)
+main_cli.add_command(description)
+main_cli.add_command(meta)
+main_cli.add_command(href)
+main_cli.add_command(elements)
+main_cli.add_command(text)
+main_cli.add_command(status)
+main_cli.add_command(urls)
+main_cli.add_command(broken)
+main_cli.add_command(emails)
+main_cli.add_command(assets)
+main_cli.add_command(orphans)
+main_cli.add_command(ai)
+main_cli.add_command(ai_key_group)
+
+main_cli.add_command(clean)
+
+if __name__ == "__main__":
+    main_cli()
